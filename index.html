@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<header class="intro">
+  <h1>Wardat Shams Iqbal</h1>
+  <p>
+    I recently completed the requirements for a B.Sc. in Computer Science at
+    BRAC University. My work so far has involved multilingual NLP,
+    language-model tokenization, machine learning experiments, and research
+    software. I am still exploring which research questions I want to pursue
+    long term.
+  </p>
+  <p class="profile-links">
+    <a href="mailto:wardat.shams.iqbal@g.bracu.ac.bd">Email</a>
+    <span aria-hidden="true">/</span>
+    <a href="https://github.com/pineconedad">GitHub</a>
+    <span aria-hidden="true">/</span>
+    <a href="https://www.linkedin.com/in/wardatiqbal/">LinkedIn</a>
+  </p>
+</header>
+
+<section aria-labelledby="publications-heading">
+  <h2 id="publications-heading">Publications</h2>
+  <div class="entries">
+    {% for publication in site.data.publications %}
+      <article class="publication">
+        <h3>{{ publication.title }}</h3>
+        <p class="authors">
+          {% for author in publication.authors %}{% if author.self %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+        </p>
+        <p class="venue"><em>{{ publication.venue }}</em>, {{ publication.year }}</p>
+        <p class="resource-links">
+          {% if publication.arxiv %}<a href="{{ publication.arxiv }}">arXiv</a> /{% elsif publication.paper %}<a href="{{ publication.paper }}">paper</a> /{% endif %}
+          {% if publication.code %}<a href="{{ publication.code }}">code</a> /{% endif %}
+          {% if publication.website %}<a href="{{ publication.website }}">website</a> /{% endif %}
+        </p>
+        {% if publication.summary %}<p>{{ publication.summary }}</p>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading">Experience</h2>
+  <div class="entries">
+    {% for experience in site.data.experiences %}
+      <article class="experience">
+        <div class="experience-heading">
+          <h3>{{ experience.role }}</h3>
+          <span>{{ experience.dates }}</span>
+        </div>
+        <p>
+          {% if experience.url %}<a href="{{ experience.url }}">{{ experience.organization }}</a>{% else %}{{ experience.organization }}{% endif %}
+        </p>
+        <p>{{ experience.description }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<footer>
+  <p>
+    Design adapted from <a href="https://jonbarron.info/">Jon Barron</a> and
+    <a href="https://github.com/leonidk/leonidk.github.io">Leonid Keselman</a>.
+  </p>
+</footer>

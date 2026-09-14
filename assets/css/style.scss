@@ -1,0 +1,158 @@
+---
+---
+
+:root {
+  --text: #111;
+  --muted: #555;
+  --link: #1772d0;
+  --link-hover: #f09228;
+  --rule: #e4e4e4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+}
+
+.page {
+  width: min(100% - 32px, 800px);
+  margin: 0 auto;
+  padding: 52px 0 28px;
+}
+
+.intro {
+  max-width: 660px;
+  margin: 0 auto 44px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+h3 {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 10px;
+  margin: 24px 0 0;
+}
+
+section {
+  margin-bottom: 42px;
+}
+
+.entries {
+  border-top: 1px solid var(--rule);
+}
+
+.publication,
+.experience {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.publication p,
+.experience p {
+  margin-bottom: 4px;
+}
+
+.authors,
+.venue,
+.resource-links {
+  line-height: 1.45;
+}
+
+.venue {
+  color: var(--muted);
+}
+
+.resource-links {
+  min-height: 1.45em;
+}
+
+.experience-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.experience-heading span {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+footer {
+  padding-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: min(100% - 28px, 800px);
+    padding-top: 34px;
+  }
+
+  .intro {
+    margin-bottom: 34px;
+  }
+
+  section {
+    margin-bottom: 34px;
+  }
+
+  .experience-heading {
+    display: block;
+  }
+
+  .experience-heading span {
+    display: block;
+    margin-bottom: 5px;
+    white-space: normal;
+  }
+}

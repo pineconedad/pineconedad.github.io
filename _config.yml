@@ -1,0 +1,19 @@
+title: Wardat Shams Iqbal
+name: Wardat Shams Iqbal
+description: Computer science graduate working on machine learning, NLP, and research software.
+url: "https://pineconedad.github.io"
+baseurl: ""
+
+markdown: kramdown
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md

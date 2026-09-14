@@ -1,0 +1,14 @@
+- title: "CLRG at SemEval-2026 Task 3: One Size Does Not Fit All: A Resource Adaptive Framework for Dimensional Sentiment Regression"
+  authors:
+    - name: Wardat Shams Iqbal
+      self: true
+    - name: Ruwad Naswan
+    - name: Swakkhar Shatabda
+  venue: "The 20th International Workshop on Semantic Evaluation (SemEval-2026), co-located with ACL 2026"
+  year: 2026
+  paper: "https://aclanthology.org/2026.semeval-1.404/"
+  arxiv:
+  code:
+  website:
+  summary:
+  image:
