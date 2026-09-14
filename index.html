@@ -14,8 +14,9 @@ layout: default
           {% assign rendered_link = false %}
           {% if profile.email %}<a href="mailto:{{ profile.email | escape }}">Email</a>{% assign rendered_link = true %}{% endif %}
           {% if profile.github %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.github | escape }}">GitHub</a>{% assign rendered_link = true %}{% endif %}
-          {% if profile.linkedin %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.linkedin | escape }}">LinkedIn</a>{% assign rendered_link = true %}{% endif %}
           {% if profile.scholar %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.scholar | escape }}">Google Scholar</a>{% assign rendered_link = true %}{% endif %}
+          {% if profile.linkedin %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.linkedin | escape }}">LinkedIn</a>{% assign rendered_link = true %}{% endif %}
+          
           {% if profile.cv %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.cv | relative_url }}">CV</a>{% endif %}
         </p>
       {% endif %}

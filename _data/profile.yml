@@ -1,13 +1,14 @@
 name: Wardat Shams Iqbal
 photo: "/assets/images/profile/wardat-shams-iqbal.jpeg"
 photo_alt: "Wardat Shams Iqbal"
-bio: >-
-  I recently completed the requirements for a B.Sc. in Computer Science at
-  BRAC University.
-research_interests: >-
+bio: |-
+  I recently graduated with a B.Sc. in Computer Science from [BRAC University](https://www.bracu.ac.bd/).
+
   My work so far has involved multilingual NLP, language-model tokenization,
-  machine learning experiments, and research software. I am still exploring
+  machine learning experiments, and other sub domains of AI/ML. I am still exploring
   which research questions I want to pursue long term.
+
+  My undergrad thesis was supervised by [Dr. Farig Yousuf Sadeque](https://scholar.google.com/citations?user=ULNaeowAAAAJ&hl=en) and Dr. [Swakkhar Shatabda](https://scholar.google.com/citations?user=2DhrWFgAAAAJ&hl=en)
 email: "wardat.shams.iqbal@g.bracu.ac.bd"
 github: "https://github.com/pineconedad"
 scholar: "https://scholar.google.com/citations?user=3S__IdMAAAAJ&hl=en"
