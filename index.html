@@ -8,27 +8,36 @@ layout: default
   <div class="intro-body">
     <div class="intro-copy">
       {{ profile.bio | markdownify }}
-      <p class="profile-links">
-        {% for link in profile.links %}
-          <a href="{{ link.url }}">{{ link.label }}</a>
-          {% unless forloop.last %}<span aria-hidden="true">/</span>{% endunless %}
-        {% endfor %}
-      </p>
+      {% if profile.research_interests %}{{ profile.research_interests | markdownify }}{% endif %}
+      {% if profile.email or profile.github or profile.linkedin or profile.scholar or profile.cv %}
+        <p class="profile-links">
+          {% assign rendered_link = false %}
+          {% if profile.email %}<a href="mailto:{{ profile.email | escape }}">Email</a>{% assign rendered_link = true %}{% endif %}
+          {% if profile.github %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.github | escape }}">GitHub</a>{% assign rendered_link = true %}{% endif %}
+          {% if profile.linkedin %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.linkedin | escape }}">LinkedIn</a>{% assign rendered_link = true %}{% endif %}
+          {% if profile.scholar %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.scholar | escape }}">Google Scholar</a>{% assign rendered_link = true %}{% endif %}
+          {% if profile.cv %}{% if rendered_link %}<span aria-hidden="true">/</span>{% endif %}<a href="{{ profile.cv | relative_url }}">CV</a>{% endif %}
+        </p>
+      {% endif %}
     </div>
     {% if profile.photo %}
-      <img class="profile-photo" src="{{ profile.photo | relative_url }}" alt="{{ profile.photo_alt | default: profile.name }}">
+      {% assign profile_thumbnail = profile.photo | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+      <img class="profile-photo" src="{{ profile_thumbnail | relative_url }}" alt="{{ profile.photo_alt | default: profile.name | escape }}">
     {% endif %}
   </div>
 </header>
 
-<section aria-labelledby="publications-heading">
-  <h2 id="publications-heading">Publications</h2>
+{% assign publications = site.publications | sort: "year" | reverse %}
+{% if publications != empty %}
+<section aria-labelledby="research-heading">
+  <h2 id="research-heading">Research</h2>
   <div class="entries">
-    {% for publication in site.data.publications %}
-      <article class="publication{% if publication.image %} entry-with-media{% endif %}">
+    {% for publication in publications %}
+      <article class="portfolio-entry{% if publication.image %} entry-with-media{% endif %}">
         {% if publication.image %}
+          {% assign thumbnail = publication.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
           <div class="entry-media">
-            <img src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title }}" loading="lazy" decoding="async">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy" decoding="async">
           </div>
         {% endif %}
         <div class="entry-copy">
@@ -37,43 +46,18 @@ layout: default
             {% for author in publication.authors %}{% if author.self %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
           </p>
           <p class="venue"><em>{{ publication.venue }}</em>, {{ publication.year }}</p>
-          <p class="resource-links">
-            {% if publication.arxiv %}<a href="{{ publication.arxiv }}">arXiv</a> /{% elsif publication.paper %}<a href="{{ publication.paper }}">paper</a> /{% endif %}
-            {% if publication.code %}<a href="{{ publication.code }}">code</a> /{% endif %}
-            {% if publication.website %}<a href="{{ publication.website }}">website</a> /{% endif %}
-          </p>
-          {% if publication.summary %}<p>{{ publication.summary }}</p>{% endif %}
-        </div>
-      </article>
-    {% endfor %}
-  </div>
-</section>
-
-{% if site.data.projects != empty %}
-<section aria-labelledby="projects-heading">
-  <h2 id="projects-heading">Projects</h2>
-  <div class="entries">
-    {% for project in site.data.projects %}
-      <article class="project{% if project.image %} entry-with-media{% endif %}">
-        {% if project.image %}
-          <div class="entry-media">
-            <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async">
-          </div>
-        {% endif %}
-        <div class="entry-copy">
-          <div class="entry-heading">
-            <h3>{{ project.title }}</h3>
-            {% if project.dates %}<span>{{ project.dates }}</span>{% endif %}
-          </div>
-          {% if project.description %}<p>{{ project.description }}</p>{% endif %}
-          {% if project.technologies %}<p class="technologies">{{ project.technologies }}</p>{% endif %}
-          {% if project.website or project.code or project.paper %}
+          {% if publication.paper or publication.arxiv or publication.code or publication.website or publication.poster or publication.slides or publication.video %}
             <p class="resource-links">
-              {% if project.website %}<a href="{{ project.website }}">website</a> /{% endif %}
-              {% if project.code %}<a href="{{ project.code }}">code</a> /{% endif %}
-              {% if project.paper %}<a href="{{ project.paper }}">paper</a> /{% endif %}
+              {% if publication.paper %}<a href="{{ publication.paper | escape }}">paper</a> /{% endif %}
+              {% if publication.arxiv %}<a href="{{ publication.arxiv | escape }}">arXiv</a> /{% endif %}
+              {% if publication.code %}<a href="{{ publication.code | escape }}">code</a> /{% endif %}
+              {% if publication.website %}<a href="{{ publication.website | escape }}">website</a> /{% endif %}
+              {% if publication.poster %}<a href="{{ publication.poster | escape }}">poster</a> /{% endif %}
+              {% if publication.slides %}<a href="{{ publication.slides | escape }}">slides</a> /{% endif %}
+              {% if publication.video %}<a href="{{ publication.video | escape }}">video</a> /{% endif %}
             </p>
           {% endif %}
+          {% if publication.excerpt != empty %}<div class="entry-description">{{ publication.excerpt }}</div>{% endif %}
         </div>
       </article>
     {% endfor %}
@@ -81,23 +65,104 @@ layout: default
 </section>
 {% endif %}
 
-<section aria-labelledby="experience-heading">
-  <h2 id="experience-heading">Experience</h2>
+{% assign projects = site.projects | where_exp: "project", "project.featured != false" | sort: "year" | reverse %}
+{% if projects != empty %}
+<section aria-labelledby="projects-heading">
+  <h2 id="projects-heading">Other Projects</h2>
   <div class="entries">
-    {% for experience in site.data.experiences %}
-      <article class="experience">
-        <div class="entry-heading">
-          <h3>{{ experience.role }}</h3>
-          <span>{{ experience.dates }}</span>
+    {% for project in projects %}
+      <article class="portfolio-entry{% if project.image %} entry-with-media{% endif %}">
+        {% if project.image %}
+          {% assign thumbnail = project.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+          <div class="entry-media">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy" decoding="async">
+          </div>
+        {% endif %}
+        <div class="entry-copy">
+          <div class="entry-heading">
+            <h3>{{ project.title }}</h3>
+            {% if project.year %}<span>{{ project.year }}</span>{% endif %}
+          </div>
+          {% if project.website or project.code or project.paper or project.poster or project.slides or project.video %}
+            <p class="resource-links">
+              {% if project.website %}<a href="{{ project.website | escape }}">website</a> /{% endif %}
+              {% if project.code %}<a href="{{ project.code | escape }}">code</a> /{% endif %}
+              {% if project.paper %}<a href="{{ project.paper | escape }}">paper</a> /{% endif %}
+              {% if project.poster %}<a href="{{ project.poster | escape }}">poster</a> /{% endif %}
+              {% if project.slides %}<a href="{{ project.slides | escape }}">slides</a> /{% endif %}
+              {% if project.video %}<a href="{{ project.video | escape }}">video</a> /{% endif %}
+            </p>
+          {% endif %}
+          {% if project.excerpt != empty %}<div class="entry-description">{{ project.excerpt }}</div>{% endif %}
         </div>
-        <p>
-          {% if experience.url %}<a href="{{ experience.url }}">{{ experience.organization }}</a>{% else %}{{ experience.organization }}{% endif %}
-        </p>
-        <p>{{ experience.description }}</p>
       </article>
     {% endfor %}
   </div>
 </section>
+{% endif %}
+
+{% assign experiences = site.experience | sort: "order" %}
+{% if experiences != empty %}
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading">Experience</h2>
+  <div class="entries">
+    {% for experience in experiences %}
+      <article class="portfolio-entry{% if experience.image %} entry-with-media{% endif %}">
+        {% if experience.image %}
+          {% assign thumbnail = experience.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+          <div class="entry-media">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ experience.image_alt | default: experience.organization | escape }}" loading="lazy" decoding="async">
+          </div>
+        {% endif %}
+        <div class="entry-copy">
+          <div class="entry-heading">
+            <h3>{{ experience.title }}</h3>
+            {% if experience.dates %}<span>{{ experience.dates }}</span>{% endif %}
+          </div>
+          {% if experience.organization %}
+            <p>{% if experience.url %}<a href="{{ experience.url | escape }}">{{ experience.organization }}</a>{% else %}{{ experience.organization }}{% endif %}</p>
+          {% endif %}
+          {% if experience.excerpt != empty %}<div class="entry-description">{{ experience.excerpt }}</div>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% assign miscellanea = site.miscellanea | sort: "date" | reverse %}
+{% if miscellanea != empty %}
+<section aria-labelledby="miscellanea-heading">
+  <h2 id="miscellanea-heading">Miscellanea</h2>
+  <div class="entries">
+    {% for item in miscellanea %}
+      <article class="portfolio-entry{% if item.image %} entry-with-media{% endif %}">
+        {% if item.image %}
+          {% assign thumbnail = item.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+          <div class="entry-media">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ item.image_alt | default: item.title | escape }}" loading="lazy" decoding="async">
+          </div>
+        {% endif %}
+        <div class="entry-copy">
+          <h3>{% if item.url %}<a href="{{ item.url | escape }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+          {% if item.type or item.date or item.organization or item.location %}
+            <p class="entry-meta">
+              {% if item.type %}<span>{{ item.type }}</span>{% endif %}
+              {% if item.date %}<span>{{ item.date }}</span>{% endif %}
+              {% if item.organization %}<span>{{ item.organization }}</span>{% endif %}
+              {% if item.location %}<span>{{ item.location }}</span>{% endif %}
+            </p>
+          {% endif %}
+          {% if item.links %}
+            <p class="resource-links">{% for link in item.links %}<a href="{{ link.url | escape }}">{{ link.label }}</a> /{% endfor %}</p>
+          {% endif %}
+          {% if item.excerpt != empty %}<div class="entry-description">{{ item.excerpt }}</div>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 <footer>
   <p>

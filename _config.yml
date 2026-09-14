@@ -5,6 +5,17 @@ url: "https://pineconedad.github.io"
 baseurl: ""
 
 markdown: kramdown
+excerpt_separator: "\n\n"
+
+collections:
+  publications:
+    output: false
+  projects:
+    output: false
+  experience:
+    output: false
+  miscellanea:
+    output: false
 
 sass:
   style: compressed
@@ -17,4 +28,4 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
-  - tools
+  - scripts

@@ -6,7 +6,6 @@
   --muted: #555;
   --link: #1772d0;
   --link-hover: #f09228;
-  --rule: #e4e4e4;
 }
 
 * {
@@ -63,6 +62,7 @@ a:focus-visible {
   width: 170px;
   height: 170px;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 50%;
 }
 
@@ -107,20 +107,15 @@ section {
   margin-bottom: 42px;
 }
 
-.entries {
-  border-top: 1px solid var(--rule);
+.portfolio-entry {
+  padding-bottom: 22px;
 }
 
-.publication,
-.project,
-.experience {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--rule);
+.portfolio-entry + .portfolio-entry {
+  padding-top: 8px;
 }
 
-.publication p,
-.project p,
-.experience p {
+.portfolio-entry p {
   margin-bottom: 4px;
 }
 
@@ -154,8 +149,16 @@ section {
   color: var(--muted);
 }
 
-.technologies {
+.entry-meta {
   color: var(--muted);
+}
+
+.entry-meta span + span::before {
+  content: " / ";
+}
+
+.entry-description p:last-child {
+  margin-bottom: 0;
 }
 
 .resource-links {

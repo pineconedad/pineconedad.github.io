@@ -1,17 +1,15 @@
-# photo accepts PNG, JPG/JPEG, or WebP. Do not use a PDF or GIF as a profile photo.
 name: Wardat Shams Iqbal
+photo: "/assets/images/profile/wardat-shams-iqbal.jpeg"
+photo_alt: "Wardat Shams Iqbal"
 bio: >-
   I recently completed the requirements for a B.Sc. in Computer Science at
-  BRAC University. My work so far has involved multilingual NLP,
-  language-model tokenization, machine learning experiments, and research
-  software. I am still exploring which research questions I want to pursue
-  long term.
-photo:
-photo_alt:
-links:
-  - label: Email
-    url: "mailto:wardat.shams.iqbal@g.bracu.ac.bd"
-  - label: GitHub
-    url: "https://github.com/pineconedad"
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/wardatiqbal/"
+  BRAC University.
+research_interests: >-
+  My work so far has involved multilingual NLP, language-model tokenization,
+  machine learning experiments, and research software. I am still exploring
+  which research questions I want to pursue long term.
+email: "wardat.shams.iqbal@g.bracu.ac.bd"
+github: "https://github.com/pineconedad"
+linkedin: "https://www.linkedin.com/in/wardatiqbal/"
+scholar: "https://scholar.google.com/citations?user=3S__IdMAAAAJ&hl=en"
+cv:
