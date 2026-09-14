@@ -108,7 +108,7 @@ layout: default
   <h2 id="experience-heading">Experience</h2>
   <div class="entries">
     {% for experience in experiences %}
-      <article class="portfolio-entry{% if experience.image %} entry-with-media{% endif %}">
+      <article class="portfolio-entry experience-entry{% if experience.image %} entry-with-media{% endif %}">
         {% if experience.image %}
           {% assign thumbnail = experience.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
           <div class="entry-media">

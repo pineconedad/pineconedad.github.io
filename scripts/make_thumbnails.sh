@@ -16,7 +16,14 @@ while IFS= read -r -d '' source; do
   relative_path="${source#"$SOURCE_DIR"/}"
   destination="$DESTINATION_DIR/$relative_path"
 
-  if [ -f "$destination" ] && [ "$destination" -nt "$source" ]; then
+  case "$relative_path" in
+    profile/*) thumbnail_size='420x420>' ;;
+    *) thumbnail_size='160x160>' ;;
+  esac
+
+  if [ -f "$destination" ] &&
+     [ "$destination" -nt "$source" ] &&
+     [ "$destination" -nt "$0" ]; then
     continue
   fi
 
@@ -25,10 +32,10 @@ while IFS= read -r -d '' source; do
   extension="$(printf '%s' "${source##*.}" | tr '[:upper:]' '[:lower:]')"
   case "$extension" in
     gif)
-      magick "$source" -coalesce -thumbnail '420x360>' -layers Optimize "$destination"
+      magick "$source" -coalesce -thumbnail "$thumbnail_size" -layers Optimize "$destination"
       ;;
     *)
-      magick "$source" -auto-orient -thumbnail '420x360>' "$destination"
+      magick "$source" -auto-orient -thumbnail "$thumbnail_size" "$destination"
       ;;
   esac
 
