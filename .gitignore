@@ -6,3 +6,5 @@ Gemfile.lock
 .sass-cache/
 vendor/
 .DS_Store
+assets/images/profile/*
+!assets/images/profile/.gitkeep
