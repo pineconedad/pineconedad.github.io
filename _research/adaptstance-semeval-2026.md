@@ -5,7 +5,7 @@ authors:
     self: true
   - name: Ruwad Naswan
   - name: Swakkhar Shatabda
-venue: "The 20th International Workshop on Semantic Evaluation (SemEval-2026), co-located with ACL 2026"
+venue: "The 20th International Workshop on Semantic Evaluation (SemEval), co-located with ACL"
 year: 2026
 image: "/assets/images/research/adaptstance-pipeline.png"
 image_alt: "Diagram of the AdaptStance high-resource and low-resource language pipelines"
