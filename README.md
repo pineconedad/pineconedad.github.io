@@ -1,7 +1,5 @@
 # pineconedad.github.io
 
-Personal academic website for Wardat Shams Iqbal.
-
 The design is adapted from [Jon Barron's website](https://jonbarron.info/) and
 [Leonid Keselman's Jekyll fork](https://github.com/leonidk/leonidk.github.io).
 
