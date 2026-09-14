@@ -43,6 +43,29 @@ a:focus-visible {
   margin: 0 auto 44px;
 }
 
+.intro--with-photo {
+  max-width: 720px;
+}
+
+.intro--with-photo .intro-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 170px;
+  gap: 32px;
+  align-items: center;
+}
+
+.intro--with-photo .profile-links {
+  justify-content: flex-start;
+}
+
+.profile-photo {
+  display: block;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 h1,
 h2,
 h3,
@@ -89,14 +112,36 @@ section {
 }
 
 .publication,
+.project,
 .experience {
   padding: 20px 0;
   border-bottom: 1px solid var(--rule);
 }
 
 .publication p,
+.project p,
 .experience p {
   margin-bottom: 4px;
+}
+
+.entry-with-media {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.entry-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-media img {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
 }
 
 .authors,
@@ -109,18 +154,22 @@ section {
   color: var(--muted);
 }
 
+.technologies {
+  color: var(--muted);
+}
+
 .resource-links {
   min-height: 1.45em;
 }
 
-.experience-heading {
+.entry-heading {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
 }
 
-.experience-heading span {
+.entry-heading span {
   color: var(--muted);
   white-space: nowrap;
 }
@@ -142,15 +191,43 @@ footer {
     margin-bottom: 34px;
   }
 
+  .intro--with-photo .intro-body {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .intro--with-photo .intro-copy {
+    order: 2;
+  }
+
+  .intro--with-photo .profile-links {
+    justify-content: center;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
   section {
     margin-bottom: 34px;
   }
 
-  .experience-heading {
+  .entry-with-media {
     display: block;
   }
 
-  .experience-heading span {
+  .entry-media {
+    width: min(100%, 320px);
+    margin: 0 auto 18px;
+  }
+
+  .entry-heading {
+    display: block;
+  }
+
+  .entry-heading span {
     display: block;
     margin-bottom: 5px;
     white-space: normal;

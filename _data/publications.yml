@@ -1,3 +1,4 @@
+# image accepts PNG, JPG/JPEG, WebP, GIF, or SVG. Do not use a PDF as an image.
 - title: "CLRG at SemEval-2026 Task 3: One Size Does Not Fit All: A Resource Adaptive Framework for Dimensional Sentiment Regression"
   authors:
     - name: Wardat Shams Iqbal
@@ -11,4 +12,5 @@
   code:
   website:
   summary:
-  image:
+  image: "/assets/images/publications/pipeline_color1.webp"
+  image_alt:
