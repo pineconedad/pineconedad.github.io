@@ -121,8 +121,8 @@ section {
 
 .entry-with-media {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 24px;
   align-items: center;
 }
 
@@ -134,11 +134,18 @@ section {
 
 .entry-media img {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 160px;
+  width: 100%;
+  max-height: 180px;
   object-fit: contain;
+}
+
+.experience-entry .entry-media {
+  width: 120px;
+}
+
+.experience-entry .entry-media img {
+  max-width: 120px;
+  max-height: 90px;
 }
 
 .authors,
@@ -224,8 +231,8 @@ footer {
   }
 
   .entry-media {
-    width: min(100%, 160px);
-    margin: 0 auto 12px;
+    width: min(100%, 320px);
+    margin: 0 auto 18px;
   }
 
   .experience-entry.entry-with-media {

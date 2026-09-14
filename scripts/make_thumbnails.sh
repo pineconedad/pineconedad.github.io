@@ -18,7 +18,7 @@ while IFS= read -r -d '' source; do
 
   case "$relative_path" in
     profile/*) thumbnail_size='420x420>' ;;
-    *) thumbnail_size='160x160>' ;;
+    *) thumbnail_size='420x360>' ;;
   esac
 
   if [ -f "$destination" ] &&
