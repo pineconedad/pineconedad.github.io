@@ -143,6 +143,11 @@ section {
   width: 120px;
 }
 
+.experience-entry.entry-with-media {
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 20px;
+}
+
 .experience-entry .entry-media img {
   max-width: 120px;
   max-height: 90px;
