@@ -27,37 +27,37 @@ layout: default
   </div>
 </header>
 
-{% assign publications = site.publications | sort: "year" | reverse %}
-{% if publications != empty %}
+{% assign research_items = site.research | sort: "year" | reverse %}
+{% if research_items != empty %}
 <section aria-labelledby="research-heading">
   <h2 id="research-heading">Research</h2>
   <div class="entries">
-    {% for publication in publications %}
-      <article class="portfolio-entry{% if publication.image %} entry-with-media{% endif %}">
-        {% if publication.image %}
-          {% assign thumbnail = publication.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+    {% for research in research_items %}
+      <article class="portfolio-entry{% if research.image %} entry-with-media{% endif %}">
+        {% if research.image %}
+          {% assign thumbnail = research.image | replace_first: '/assets/images/', '/assets/thumbnails/' %}
           <div class="entry-media">
-            <img src="{{ thumbnail | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy" decoding="async">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ research.image_alt | default: research.title | escape }}" loading="lazy" decoding="async">
           </div>
         {% endif %}
         <div class="entry-copy">
-          <h3>{{ publication.title }}</h3>
+          <h3>{{ research.title }}</h3>
           <p class="authors">
-            {% for author in publication.authors %}{% if author.self %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+            {% for author in research.authors %}{% if author.self %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
           </p>
-          <p class="venue"><em>{{ publication.venue }}</em>, {{ publication.year }}</p>
-          {% if publication.paper or publication.arxiv or publication.code or publication.website or publication.poster or publication.slides or publication.video %}
+          <p class="venue"><em>{{ research.venue }}</em>, {{ research.year }}</p>
+          {% if research.paper or research.arxiv or research.code or research.website or research.poster or research.slides or research.video %}
             <p class="resource-links">
-              {% if publication.paper %}<a href="{{ publication.paper | escape }}">paper</a> /{% endif %}
-              {% if publication.arxiv %}<a href="{{ publication.arxiv | escape }}">arXiv</a> /{% endif %}
-              {% if publication.code %}<a href="{{ publication.code | escape }}">code</a> /{% endif %}
-              {% if publication.website %}<a href="{{ publication.website | escape }}">website</a> /{% endif %}
-              {% if publication.poster %}<a href="{{ publication.poster | escape }}">poster</a> /{% endif %}
-              {% if publication.slides %}<a href="{{ publication.slides | escape }}">slides</a> /{% endif %}
-              {% if publication.video %}<a href="{{ publication.video | escape }}">video</a> /{% endif %}
+              {% if research.paper %}<a href="{{ research.paper | escape }}">paper</a> /{% endif %}
+              {% if research.arxiv %}<a href="{{ research.arxiv | escape }}">arXiv</a> /{% endif %}
+              {% if research.code %}<a href="{{ research.code | escape }}">code</a> /{% endif %}
+              {% if research.website %}<a href="{{ research.website | escape }}">website</a> /{% endif %}
+              {% if research.poster %}<a href="{{ research.poster | escape }}">poster</a> /{% endif %}
+              {% if research.slides %}<a href="{{ research.slides | escape }}">slides</a> /{% endif %}
+              {% if research.video %}<a href="{{ research.video | escape }}">video</a> /{% endif %}
             </p>
           {% endif %}
-          {% if publication.excerpt != empty %}<div class="entry-description">{{ publication.excerpt }}</div>{% endif %}
+          {% if research.excerpt != empty %}<div class="entry-description">{{ research.excerpt }}</div>{% endif %}
         </div>
       </article>
     {% endfor %}
@@ -65,7 +65,7 @@ layout: default
 </section>
 {% endif %}
 
-{% assign projects = site.projects | where_exp: "project", "project.featured != false" | sort: "year" | reverse %}
+{% assign projects = site.other_projects | where_exp: "project", "project.featured != false" | sort: "year" | reverse %}
 {% if projects != empty %}
 <section aria-labelledby="projects-heading">
   <h2 id="projects-heading">Other Projects</h2>

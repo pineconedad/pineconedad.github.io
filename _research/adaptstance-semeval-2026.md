@@ -7,7 +7,7 @@ authors:
   - name: Swakkhar Shatabda
 venue: "The 20th International Workshop on Semantic Evaluation (SemEval-2026), co-located with ACL 2026"
 year: 2026
-image: "/assets/images/publications/adaptstance-pipeline.png"
+image: "/assets/images/research/adaptstance-pipeline.png"
 image_alt: "Diagram of the AdaptStance high-resource and low-resource language pipelines"
 paper: "https://aclanthology.org/2026.semeval-1.404/"
 arxiv:

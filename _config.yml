@@ -8,9 +8,9 @@ markdown: kramdown
 excerpt_separator: "\n\n"
 
 collections:
-  publications:
+  research:
     output: false
-  projects:
+  other_projects:
     output: false
   experience:
     output: false
