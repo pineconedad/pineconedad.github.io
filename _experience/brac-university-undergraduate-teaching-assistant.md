@@ -1,5 +1,5 @@
 ---
-title: Undergraduate Teaching Assistant
+title: Undergraduate Teaching Assistant / Student Tutor
 organization: BRAC University CSE
 dates: "Feb 2025 - Jan 2026; Jul - Sep 2026"
 url: "https://www.bracu.ac.bd/academics/departments/computer-science-and-engineering"
