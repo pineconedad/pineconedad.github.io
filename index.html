@@ -2,6 +2,34 @@
 layout: default
 ---
 
+<style>
+  .intro--with-photo .intro-body {
+    display: block !important;
+  }
+
+  .intro--with-photo .intro-copy {
+    display: flow-root !important;
+  }
+
+  .intro--with-photo .profile-links {
+    clear: both;
+  }
+
+  @media (min-width: 601px) {
+    .intro--with-photo .profile-photo {
+      float: right !important;
+      margin: 0 0 18px 28px !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .intro--with-photo .profile-photo {
+      float: none !important;
+      margin: 0 auto 20px !important;
+    }
+  }
+</style>
+
 {% assign profile = site.data.profile %}
 <header class="intro{% if profile.photo %} intro--with-photo{% endif %}">
   <h1>{{ profile.name }}</h1>
