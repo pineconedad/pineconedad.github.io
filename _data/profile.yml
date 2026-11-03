@@ -2,13 +2,16 @@ name: Wardat Shams Iqbal
 photo: "/assets/images/profile/wardat-shams-iqbal.jpeg"
 photo_alt: "Wardat Shams Iqbal"
 bio: |-
-  I recently graduated with a B.Sc. in Computer Science from [BRAC University](https://www.bracu.ac.bd/).
+I recently completed my undergraduate degree in Computer Science from [BRAC University](https://www.bracu.ac.bd/), Bangladesh. During these formative four years I go to learn and interact with different subdomains within the branch of CS, like Algorithms, Data Structures, Computational Theories, Bioinformatics, Artificial Intelligence, Natural Language Processing, Quantum Computing etc. I still cherish this open-minded attitude towards the field while I am looking for prospective PhD opportunities and hope to broaden my interest and knowledge as much as I can.
 
-  My work so far has involved multilingual NLP, language-model tokenization,
-  machine learning experiments, and other sub domains of AI/ML. I am still exploring
-  which research questions I want to pursue long term.
+During my final year at BRACU I was required to complete a thesis (research) which was guided by Dr. [Swakkhar Shatabda](https://scholar.google.com/citations?user=2DhrWFgAAAAJ&hl=en) and Dr. [Farig Yousuf Sadeque](https://scholar.google.com/citations?user=ULNaeowAAAAJ&hl=en). In this project, I tried to utilize my theoretical understanding of how Large Language Models actually work  and tried to figure out why do LLMs had a certain number of undertrained tokens in its vocabulary even after thoroughly being trained and how to make these tokens trained enough so that the models do not hallucinate when they are prompted with it. 
 
-  My undergrad thesis was supervised by Dr. [Farig Yousuf Sadeque](https://scholar.google.com/citations?user=ULNaeowAAAAJ&hl=en) and Dr. [Swakkhar Shatabda](https://scholar.google.com/citations?user=2DhrWFgAAAAJ&hl=en)
+But my work or interest is not only limited to LLMs, I also love to work with computer vision. Recently participated in a NeurIPS 2026 competition organized by Stanford Vision and Learning Lab (SVL) where we did not break the leaderboard but am immensely proud about how much we have achieved with just our local GPU and main inference VLM with only 4b parameters. I am also working on another project with vision encoders, will add more details when it’s published somewhere.
+
+Besides my love for interpreting how intelligent systems behave and learn, I also love to understand how computers work, how computational theories work, and what the possible opportunities are in the field of quantum computing. In my undergrad years I took two separate electives to learn the fundamentals and mathematics of quantum computing deeply. I thoroughly enjoyed learning about tensor products, quantum circuits and algorithms, noise and error correction and a bit of quantum information.
+
+So far, I am just a confused young lad who would love to work with difficult problems in AI and ML systems and also would love to deep dive and try to find solutions for sophisticated theoretical problems in computer science, maybe leaning more towards quantum computing. Oh! By the way, I currently work as a researcher at the MIRAI Lab at University of Dhaka under the guidance of Dr. [Md. Mamun-Or-Rashid](https://scholar.google.com/citations?hl=en&user=OUanlWAAAAAJ).
+
 email: "wardat.shams.iqbal@g.bracu.ac.bd"
 github: "https://github.com/pineconedad"
 scholar: "https://scholar.google.com/citations?user=3S__IdMAAAAJ&hl=en"
