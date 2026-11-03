@@ -7,6 +7,10 @@ layout: default
   <h1>{{ profile.name }}</h1>
   <div class="intro-body">
     <div class="intro-copy">
+      {% if profile.photo %}
+        {% assign profile_thumbnail = profile.photo | replace_first: '/assets/images/', '/assets/thumbnails/' %}
+        <img class="profile-photo" src="{{ profile_thumbnail | relative_url }}" alt="{{ profile.photo_alt | default: profile.name | escape }}">
+      {% endif %}
       {{ profile.bio | markdownify }}
       {% if profile.research_interests %}{{ profile.research_interests | markdownify }}{% endif %}
       {% if profile.email or profile.github or profile.linkedin or profile.scholar or profile.cv %}
@@ -21,10 +25,6 @@ layout: default
         </p>
       {% endif %}
     </div>
-    {% if profile.photo %}
-      {% assign profile_thumbnail = profile.photo | replace_first: '/assets/images/', '/assets/thumbnails/' %}
-      <img class="profile-photo" src="{{ profile_thumbnail | relative_url }}" alt="{{ profile.photo_alt | default: profile.name | escape }}">
-    {% endif %}
   </div>
 </header>
 
