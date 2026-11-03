@@ -121,7 +121,7 @@ layout: default
             {% if experience.dates %}<span>{{ experience.dates }}</span>{% endif %}
           </div>
           {% if experience.organization %}
-            <p>{% if experience.url %}<a href="{{ experience.url | escape }}">{{ experience.organization }}</a>{% else %}{{ experience.organization }}{% endif %}</p>
+            <p>{% if experience.organization_url %}<a href="{{ experience.organization_url | escape }}">{{ experience.organization }}</a>{% else %}{{ experience.organization }}{% endif %}</p>
           {% endif %}
           {% if experience.excerpt != empty %}<div class="entry-description">{{ experience.excerpt }}</div>{% endif %}
         </div>
